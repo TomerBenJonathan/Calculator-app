@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dist/style.css">
+    <title>Calculator</title>
+</head>
+
+<body>
+    <div class="calculator">
+
+        <div class="calculator-keys">
+            <div class="column__left">
+                <button type="button" class="operator infoAlert" value="info" onclick="promptAlert()">&#128712;</button>
+                <button type="button" class="operator" value="a">&#128161;</button>
+                <button type="button" class="operator" value="b">&#128337;</button>
+                <button type="button" class="operator" value="c">&#110;&radic;x<sup></sup></button>
+                <button type="button" class="operator" value="d">☁️</button>
+                <button type="button" class="operator"></button>
+                <button type="button" class="operator"></button>
+            </div>
+
+
+            <div class="column__middle">
+                <div class="column__middle-top">
+                    <div class="long-el">
+                        <h1 style="text-align: center; padding-top: 16px;"> my calculator</h1>
+                    </div>
+                    <form name="form1">
+                        <input type="text" class="calculator-screen" placeholder="0" name="textview">
+                    </form>
+                    <button class="long-el" type="button" value="c" onclick="form1.textview.value = ' '">C</button>
+                </div>
+                <div class="grid-nums">
+                    <button class="operator n7" type="button" value="7" onclick="insert(7)">7</button>
+                    <button class="operator n8" type="button" value="8" onclick="insert(8)">8</button>
+                    <button class="operator n9" type="button" value="9" onclick="insert(9)">9</button>
+                    <button class="operator n4" type="button" value="4" onclick="insert(4)">4</button>
+                    <button class="operator n5" type="button" value="5" onclick="insert(5)">5</button>
+                    <button class="operator n6" type="button" value="6" onclick="insert(6)">6</button>
+                    <button class="operator n1" type="button" value="1" onclick="insert(1)">1</button>
+                    <button class="operator n2" type="button" value="2" onclick="insert(2)">2</button>
+                    <button class="operator n3" type="button" value="3" onclick="insert(3)">3</button>
+                    <button class="operator n+" type="button" value="-/+" onclick="insertoperator('+')">-/+</button>
+                    <button class="operator n0" type="button" value="0" onclick="insert(0)">0</button>
+                    <button class="operator decimal n." type="button" value="." onclick="insert('.')">.</button>
+                </div>
+            </div>
+
+            <div class="column__right">
+                <button type="button" class="operator">⚙️</button>
+                <button class="operator" type="button" value="B" onclick="backspace()">↺</button>
+                <button class="operator" type="button" value="/" onclick="insertoperator('/')">/</button>
+                <button class="operator" type="button" value="&times;" onclick="insertoperator('*')">*</button>
+                <button class="operator" type="button" value="-" onclick="insertoperator('-')">-</button>
+                <button class="operator" type="button" value="+" onclick="insertoperator('+')">+</button>
+                <button class="operator equal-sign" type="button" value="=" onclick="equal()">=</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+
+
+
+</html>
