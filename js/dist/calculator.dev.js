@@ -10,11 +10,15 @@ function insert(num) {
 }
 
 function insertoperator(num) {
-  var exp = document.form1.textview.value;
+  if (document.form1.textview.value.slice(-1) === '*' || document.form1.textview.value.slice(-1) === '/' || document.form1.textview.value.slice(-1) === '+' || document.form1.textview.value.slice(-1) === '-') {
+    document.form1.textview.value = document.form1.textview.value.slice(0, -1) + num;
+  } else {
+    var exp = document.form1.textview.value;
 
-  if (exp) {
-    document.form1.textview.value = eval(exp);
-    document.form1.textview.value = document.form1.textview.value + num;
+    if (exp) {
+      document.form1.textview.value = eval(exp);
+      document.form1.textview.value = document.form1.textview.value + num;
+    }
   }
 }
 

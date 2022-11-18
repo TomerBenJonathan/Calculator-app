@@ -10,12 +10,15 @@ function insert(num) {
 }
 
 function insertoperator(num) {
+    if(document.form1.textview.value.slice(-1)==='*'||document.form1.textview.value.slice(-1)==='/'|| document.form1.textview.value.slice(-1)==='+'||document.form1.textview.value.slice(-1)==='-'){
+        document.form1.textview.value=document.form1.textview.value.slice(0,-1)+num;
+    }else{
+    
     const exp = document.form1.textview.value;
     if (exp) {
         document.form1.textview.value = eval(exp);
         document.form1.textview.value = document.form1.textview.value + num;
-   
-
+    }
 }
 }
 function alertNum(el){
@@ -60,3 +63,6 @@ function myFunction() {
     backspace();
 
 }
+
+
+
