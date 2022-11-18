@@ -64,5 +64,8 @@ function myFunction() {
 
 }
 
-
-
+function classToggle() {
+    this.classList.toggle('ccalculator-light');
+    this.classList.toggle('calculator-dark');
+}
+document.querySelector('#cury').addEventListener('click', classToggle);
