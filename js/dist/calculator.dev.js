@@ -1,7 +1,5 @@
 "use strict";
 
-var _localStorage = require("local-storage");
-
 // let cur_value ="";
 // let first_operand= "";
 // let cur_operator = "";
@@ -52,8 +50,7 @@ function equal() {
   ///              cur_value =eval(exp) ;
   /// cur_operator = "";
   /// second_operand = "";
-} //
-
+}
 
 function backspace() {
   var exp = document.form1.textview.value;

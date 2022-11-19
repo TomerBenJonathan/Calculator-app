@@ -148,6 +148,7 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  margin-top: 50vh;
 }
 .calculator-dark .calculator-screen {
   font-size: 5rem;
@@ -255,20 +256,25 @@ body {
 }
 
 @media screen and (max-width: 768px) {
-  .calculator-light {
+  .calculator-light,
+.calculator-dark {
     margin-top: 0;
   }
-  .calculator-light .alt-operators {
+  .calculator-light .alt-operators,
+.calculator-dark .alt-operators {
     display: none;
   }
-  .calculator-light .mobile {
+  .calculator-light .mobile,
+.calculator-dark .mobile {
     display: block;
   }
-  .calculator-light .mobile__alt-operators {
+  .calculator-light .mobile__alt-operators,
+.calculator-dark .mobile__alt-operators {
     height: 200px;
     background-color: #1b79b7;
   }
-  .calculator-light .mobile__alt-operators-lighter {
+  .calculator-light .mobile__alt-operators-lighter,
+.calculator-dark .mobile__alt-operators-lighter {
     height: 200px;
     background-color: #6ab9ee;
   }

@@ -1,8 +1,3 @@
-import {
-    setItem,
-    storedValue
-} from 'local-storage';
-
 // let cur_value ="";
 // let first_operand= "";
 // let cur_operator = "";
@@ -60,7 +55,6 @@ function equal() {
 
 }
 
-//
 
 function backspace() {
     const exp = document.form1.textview.value;
@@ -110,4 +104,3 @@ function mylight() {
         current_class = divEle.className;
     divEle.className = (current_class == "calculator-light") ? "calculator-dark" : "calculator-light";
 }
-

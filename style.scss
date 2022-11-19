@@ -187,6 +187,8 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
+  margin-top: 50vh;
+
 
   .calculator-screen {
     font-size: 5rem;
@@ -329,7 +331,8 @@ body {
 
 @media screen and (max-width: 768px) {
 
-  .calculator-light {
+  .calculator-light,
+  .calculator-dark {
     margin-top: 0;
 
     .alt-operators {
