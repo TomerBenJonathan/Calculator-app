@@ -138,11 +138,9 @@ body {
   display: none;
 }
 .calculator-light .mobile__alt-operators {
-  height: 200px;
   background-color: #1b79b7;
 }
 .calculator-light .mobile__alt-operators-lighter {
-  height: 200px;
   background-color: #6ab9ee;
 }
 

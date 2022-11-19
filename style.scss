@@ -20,8 +20,6 @@ body {
   justify-content: center;
   align-items: center;
   transition: all 0.2s ease-out;
-
-  // transition: width 0.4s, height 0.4s, background-color 0.4s, transform 0.4s;
 }
 
 // Light theme ---------------------------------
@@ -173,12 +171,10 @@ body {
     display: none;
 
     &__alt-operators {
-      height: 200px;
       background-color: #1b79b7;
     }
 
     &__alt-operators-lighter {
-      height: 200px;
       background-color: #6ab9ee;
     }
   }
