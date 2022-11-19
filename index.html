@@ -9,7 +9,7 @@
     <title>Calculator</title>
 </head>
 
-<body>
+<body onload="loadBg(event)">
     <div class="calculator-light" id="cury">
         <div class="wrapper">
             <div class="logs alt-operators bg__light-gray"></div>
@@ -62,7 +62,11 @@
                 </div>
             </div>
 
-            <div class="column__right bg__light-green"></div>
+            <div class="alt-operators column__right bg__light-green"></div>
+        </div>
+        <div class="mobile">
+            <div class="mobile mobile__alt-operators"></div>
+            <div class="mobile mobile__alt-operators-lighter"></div>
         </div>
     </div>
     <script src="./js/calculator.js"></script>

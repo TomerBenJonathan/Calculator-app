@@ -12,13 +12,26 @@ html {
   box-sizing: inherit;
 }
 
-// Light theme ---------------------------------
-
-.calculator-light {
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.2s ease-out;
+
+  // transition: width 0.4s, height 0.4s, background-color 0.4s, transform 0.4s;
+}
+
+// Light theme ---------------------------------
+
+.calculator-light {
+  margin-top: 50vh;
+  display: flex;
+  flex-direction: column;
   height: 100vh;
+  width: fit-content;
 
   .calculator-screen {
     font-size: 5rem;
@@ -34,6 +47,7 @@ html {
   .wrapper {
     display: flex;
     height: fit-content;
+    width: fit-content;
     border: 1px solid gray;
     padding: 0;
   }
@@ -154,6 +168,20 @@ html {
   a {
     text-decoration: none;
   }
+
+  .mobile {
+    display: none;
+
+    &__alt-operators {
+      height: 200px;
+      background-color: #1b79b7;
+    }
+
+    &__alt-operators-lighter {
+      height: 200px;
+      background-color: #6ab9ee;
+    }
+  }
 }
 
 
@@ -161,8 +189,7 @@ html {
 
 .calculator-dark {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
   height: 100vh;
 
   .calculator-screen {
@@ -298,5 +325,33 @@ html {
 
   a {
     text-decoration: none;
+  }
+}
+
+
+// Media queries
+
+@media screen and (max-width: 768px) {
+
+  .calculator-light {
+    margin-top: 0;
+
+    .alt-operators {
+      display: none;
+    }
+
+    .mobile {
+      display: block;
+
+      &__alt-operators {
+        height: 200px;
+        background-color: #1b79b7;
+      }
+
+      &__alt-operators-lighter {
+        height: 200px;
+        background-color: #6ab9ee;
+      }
+    }
   }
 }
