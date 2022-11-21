@@ -90,10 +90,21 @@ function myFunction() {
   var sel1 = document.getElementById('background').value;
   document.body.style.backgroundColor = sel1;
   backspace();
-}
+} // function mylight() {
+//     var divEle = document.getElementById("cury"),
+//         current_class = divEle.className;
+//     divEle.className = (current_class == "calculator-light") ? "calculator-dark" : "calculator-light";
+// }
 
-function mylight() {
-  var divEle = document.getElementById("cury"),
-      current_class = divEle.className;
-  divEle.className = current_class == "calculator-light" ? "calculator-dark" : "calculator-light";
+
+function handleLight() {
+  var calcScreen = document.querySelector(".calculator-screen");
+
+  if (calcScreen.style.backgroundColor !== "yellow") {
+    calcScreen.style.backgroundColor = "yellow";
+  } else {
+    var _calcScreen = document.querySelector(".calculator-screen");
+
+    _calcScreen.style.backgroundColor = "white";
+  }
 }

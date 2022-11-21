@@ -99,8 +99,20 @@ function myFunction() {
 
 }
 
-function mylight() {
-    var divEle = document.getElementById("cury"),
-        current_class = divEle.className;
-    divEle.className = (current_class == "calculator-light") ? "calculator-dark" : "calculator-light";
+// function mylight() {
+//     var divEle = document.getElementById("cury"),
+//         current_class = divEle.className;
+//     divEle.className = (current_class == "calculator-light") ? "calculator-dark" : "calculator-light";
+// }
+
+function handleLight() {
+    let calcScreen = document.querySelector(".calculator-screen");
+
+    if (calcScreen.style.backgroundColor !== "yellow") {
+        calcScreen.style.backgroundColor = "yellow";
+    } else {
+        let calcScreen = document.querySelector(".calculator-screen");
+        calcScreen.style.backgroundColor = "white";
+    }
 }
+
