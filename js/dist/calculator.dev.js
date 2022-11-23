@@ -40,6 +40,7 @@ function alertNum(el) {
 }
 
 function equal() {
+  history();
   var exp = document.form1.textview.value;
 
   if (exp) {
@@ -74,14 +75,6 @@ function clear() {//cur_value="" ;
   // document.form1.textview.value= first_operand + first_operator + second_operand;
 }
 
-function power() {
-  var exp = document.form1.textview.value;
-
-  if (exp) {
-    document.form1.textview.value = Math.pow(eval(exp), 2);
-  }
-}
-
 function promptAlert() {
   alert("Developer: Tomer Ben Jonathan" + "\n" + "Version: 0.1" + "\n" + "Description: Calculator App");
 }
@@ -107,4 +100,34 @@ function handleLight() {
 
     _calcScreen.style.backgroundColor = "white";
   }
+}
+
+function power2() {
+  document.form1.textview.value += "**(2)";
+}
+
+function power_y() {
+  document.form1.textview.value += "**";
+}
+
+function root_2() {
+  document.form1.textview.value += "**(0.5)";
+}
+
+function root_y() {
+  document.form1.textview.value += "**(1/";
+}
+
+function PI() {
+  document.form1.textview.value += "math.PI";
+}
+
+function history() {
+  var exp = document.form1.textview.value;
+  var history_test = "".concat(exp, " \n =").concat(eval(exp), "\n");
+  span = document.getElementById("hist");
+  span.style.fontSize = "35px";
+  span.style.textAlign = "center";
+  document.getElementById("hist").innerText += history_test;
+  console.log(history_test);
 }
