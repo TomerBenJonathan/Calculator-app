@@ -131,3 +131,37 @@ function history() {
   document.getElementById("hist").innerText += history_test;
   console.log(history_test);
 }
+
+function clear_history() {
+  document.getElementById("hist").innerText = "";
+}
+
+function history_on() {
+  clear_history();
+  var calcScreen = document.getElementById("clocky");
+
+  if (calcScreen.style.backgroundColor !== "orange") {
+    calcScreen.style.backgroundColor = "orange";
+    document.getElementById("histdev").style.display = "block";
+  } else {
+    var _calcScreen2 = document.getElementById("clocky");
+
+    _calcScreen2.style.backgroundColor = "lightblue";
+    document.getElementById("histdev").style.display = "none";
+  }
+}
+
+function scientific_on() {
+  clear_history();
+  var calcScreen = document.getElementById("clocky");
+
+  if (calcScreen.style.backgroundColor !== "orange") {
+    calcScreen.style.backgroundColor = "orange";
+    document.getElementById("histdev").style.display = "block";
+  } else {
+    var _calcScreen3 = document.getElementById("clocky");
+
+    _calcScreen3.style.backgroundColor = "lightblue";
+    document.getElementById("histdev").style.display = "none";
+  }
+}

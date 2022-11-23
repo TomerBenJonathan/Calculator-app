@@ -15,7 +15,7 @@
 
     <div class="calculator-light" id="cury">
         <div class="wrapper">
-            <div  class="logs alt-operators bg__light-gray" style="text-align:center ;"><h1>&#128337;Operations log</h1>
+            <div id="histdev" class="logs alt-operators bg__light-gray" style="text-align:center ;"><h1>&#128337;Operations log</h1>
             <div id="hist"></div>
             </div>
             <div class="calculator-keys">
@@ -23,7 +23,7 @@
                     <button type="button" class="operator infoAlert" value="info"
                         onclick="promptAlert()">&#128712;</button>
                     <button type="button" class="operator" value="a" onclick="handleLight()">&#128161;</button>
-                    <button type="button" class="operator" value="b">&#128337;</button>
+                    <button type="button" class="operator" value="b" id="clocky" onclick="history_on()">&#128337;</button>
                     <button type="button" class="operator" value="c">&#110;&radic;x<sup></sup></button>
                     <button type="button" class="operator" value="d">☁️</button>
                     <button type="button" class="operator"></button>
@@ -38,7 +38,7 @@
                         <form name="form1">
                             <input type="text" class="calculator-screen" placeholder="0" name="textview">
                         </form>
-                        <button class="long-el" type="button" value="c" onclick="form1.textview.value = '' ">C</button>
+                        <button class="long-el" type="button" value="c" onclick="form1.textview.value = '' ,clear_history()">C</button>
                     </div>
                     <div class="grid-nums">
                         <button class="operator n7" type="button" value="7" onclick="insert(7)">7</button>

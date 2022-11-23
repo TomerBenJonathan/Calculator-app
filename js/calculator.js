@@ -144,4 +144,36 @@ function history(){
   console.log(history_test);
 }
 
+function clear_history(){
+    document.getElementById("hist").innerText="";
+}
 
+function history_on() {
+    clear_history()
+    let calcScreen = document.getElementById("clocky");
+
+    if (calcScreen.style.backgroundColor !== "orange") {
+        calcScreen.style.backgroundColor = "orange";
+        document.getElementById("histdev").style.display="block";
+        
+    } else {
+        let calcScreen = document.getElementById("clocky");
+        calcScreen.style.backgroundColor = "lightblue";
+        document.getElementById("histdev").style.display="none";
+    }
+}
+
+function scientific_on() {
+    clear_history()
+    let calcScreen = document.getElementById("clocky");
+
+    if (calcScreen.style.backgroundColor !== "orange") {
+        calcScreen.style.backgroundColor = "orange";
+        document.getElementById("histdev").style.display="block";
+        
+    } else {
+        let calcScreen = document.getElementById("clocky");
+        calcScreen.style.backgroundColor = "lightblue";
+        document.getElementById("histdev").style.display="none";
+    }
+}
