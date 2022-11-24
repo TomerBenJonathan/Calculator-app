@@ -279,6 +279,115 @@ body {
   height: 100vh;
   margin-top: 50vh;
 }
+.calculator-dark .container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 200px;
+  height: 100%;
+  grid-template-areas: "a a" "b b" "c d" "e f" "g h" "i i" "i i";
+  font-size: 16px;
+  font-weight: 600;
+}
+.calculator-dark .a {
+  grid-area: a;
+  border: 1px solid gray;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.calculator-dark .a:hover {
+  background-color: lightgreen;
+  cursor: pointer;
+}
+.calculator-dark .b {
+  grid-area: b;
+  border: 1px solid gray;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.calculator-dark .b:hover {
+  background-color: lightgreen;
+  cursor: pointer;
+}
+.calculator-dark .c {
+  grid-area: c;
+  border: 1px solid gray;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.calculator-dark .c:hover {
+  background-color: lightgreen;
+  cursor: pointer;
+}
+.calculator-dark .d {
+  grid-area: d;
+  border: 1px solid gray;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.calculator-dark .d:hover {
+  background-color: lightgreen;
+  cursor: pointer;
+}
+.calculator-dark .e {
+  grid-area: e;
+  border: 1px solid gray;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.calculator-dark .e:hover {
+  background-color: lightgreen;
+  cursor: pointer;
+}
+.calculator-dark .f {
+  grid-area: f;
+  border: 1px solid gray;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.calculator-dark .f:hover {
+  background-color: lightgreen;
+  cursor: pointer;
+}
+.calculator-dark .g {
+  height: 60px;
+  grid-area: g;
+  border: 1px solid gray;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.calculator-dark .g:hover {
+  background-color: lightgreen;
+  cursor: pointer;
+}
+.calculator-dark .h {
+  grid-area: h;
+  border: 1px solid gray;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.calculator-dark .h:hover {
+  background-color: lightgreen;
+  cursor: pointer;
+}
+.calculator-dark .i {
+  grid-area: i;
+  border: 1px solid gray;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.calculator-dark .i:hover {
+  background-color: lightgreen;
+  cursor: pointer;
+}
 .calculator-dark .calculator-screen {
   font-size: 5rem;
   width: 100%;
@@ -382,6 +491,25 @@ body {
 }
 .calculator-dark a {
   text-decoration: none;
+}
+.calculator-dark .container {
+  display: grid;
+  grid-template-columns: 20% 20%;
+  grid-template-rows: 1fr 2fr 1fr 1fr 1fr 2fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: ". ." ". ." ". ." ". ." ". ." ". .";
+  font-size: 16px;
+  font-weight: 600;
+  width: 200px;
+  height: 100%;
+}
+.calculator-dark .container-mobile {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 2fr 2.5fr;
+  gap: 0px 0px;
+  grid-template-areas: ". . . ." ". . . ." ". . . .";
 }
 
 @media screen and (max-width: 768px) {

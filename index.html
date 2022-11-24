@@ -22,9 +22,9 @@
                 <div class="column__left">
                     <button type="button" class="operator infoAlert" value="info"
                         onclick="promptAlert()">&#128712;</button>
-                    <button type="button" class="operator" value="a" onclick="handleLight()">&#128161;</button>
+                    <button type="button" class="operator" value="a" id="lump" onclick="handleLight()">&#128161;</button>
                     <button type="button" class="operator" value="b" id="clocky" onclick="history_on()">&#128337;</button>
-                    <button type="button" class="operator" value="c">&#110;&radic;x<sup></sup></button>
+                    <button type="button" class="operator" value="c"id="scientific" onclick="scientific_on()">&#110;&radic;x<sup></sup></button>
                     <button type="button" class="operator" value="d">☁️</button>
                     <button type="button" class="operator"></button>
                     <button type="button" class="operator"></button>
@@ -59,28 +59,28 @@
                 <div class="column__right">
                     <button type="button" class="operator"> <a href="./config.html" target="_blank">⚙️</a></button>
                     <button class="operator" type="button" value="B" onclick="backspace()">↺</button>
-                    <button class="operator" type="button" value="/" onclick="insertoperator('/')">/</button>
-                    <button class="operator" type="button" value="&times;" onclick="insertoperator('*')">x</button>
-                    <button class="operator" type="button" value="-" onclick="insertoperator('-')">-</button>
-                    <button class="operator" type="button" value="+" onclick="insertoperator('+')">+</button>
+                    <button class="operator" type="button" value="/" onclick="insertoperator('/'),insertoperatorScientific('/')">/</button>
+                    <button class="operator" type="button" value="&times;" onclick="insertoperator('*'),insertoperatorScientific('*')">x</button>
+                    <button class="operator" type="button" value="-" onclick="insertoperator('-'), insertoperatorScientific('-')">-</button>
+                    <button class="operator" type="button" value="+" onclick="insertoperator('+'), insertoperatorScientific('+')">+</button>
                     <button class="operator equal-sign" type="button" value="=" onclick="equal()">=</button>
                 </div>
             </div>
 
             <!-- <div class="alt-operators column__right bg__light-green"></div> -->
-
-            <div class="container">
+          <div id = "cont">   
+            <div id = "cont" class="container">
                 <div class="a bg__light-green"><sup>n</sup>&radic;x Scientific</div>
                 <div class="b bg__light-green"></div>
-                <div class="c bg__light-green" onclick="power2()">X<sup>2</sup></div>
+                <div class="c bg__light-green" onclick="power2()">X&sup2;</sup></div>
                 <div class="d bg__light-green" onclick="root_2()"><sup>2</sup>&radic;x</div>
                 <div class="e bg__light-green" onclick="power_y()">x<sup>y</sup></div>
                 <div class="f bg__light-green" onclick="root_y()"><sup>y</sup>&radic;x</div>
                 <div class="g bg__light-green">mod</div>
-                <div class="h bg__light-green" onclick="function PI()">&#x213C;</div>
+                <div class="h bg__light-green" onclick="PI()">&#x213C;</div>
                 <div class="i bg__light-green">Base&#8322;</div>
             </div>
-
+         </div>
         </div>
         <div class="mobile">
             <div class="container-mobile">

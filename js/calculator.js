@@ -1,3 +1,9 @@
+
+
+let Enabled= true;
+
+
+
 // let cur_value ="";
 // let first_operand= "";
 // let cur_operator = "";
@@ -15,6 +21,7 @@ function insert(num) {
 // document.form1.textview.value= first_operand+ cur_operator+ second_operand;  
 
 function insertoperator(num) {
+    if(Enabled===true){
     if (document.form1.textview.value.slice(-1) === '*' || document.form1.textview.value.slice(-1) === '/' || document.form1.textview.value.slice(-1) === '+' || document.form1.textview.value.slice(-1) === '-') {
         document.form1.textview.value = document.form1.textview.value.slice(0, -1) + num;
     } else {
@@ -25,7 +32,7 @@ function insertoperator(num) {
             document.form1.textview.value = document.form1.textview.value + num;
         }
     }
-
+}
 }
 
 // if(second_operand !==""){
@@ -37,6 +44,23 @@ function insertoperator(num) {
 // else{ 
 // cur_operator=num;
 // document.form1.textview.value= first_operand + cur_operator;
+function insertoperatorScientific(num) {
+    if(Enabled===false){
+    if (document.form1.textview.value.slice(-1) === '*' || document.form1.textview.value.slice(-1) === '/' || document.form1.textview.value.slice(-1) === '+' || document.form1.textview.value.slice(-1) === '-') {
+        document.form1.textview.value = document.form1.textview.value.slice(0, -1) + num;
+    } else {
+
+        
+            document.form1.textview.value = document.form1.textview.value + num;
+        }
+    }
+}
+
+
+
+
+
+
 
 
 function alertNum(el) {
@@ -49,7 +73,7 @@ function equal() {
     if (exp) {
         document.form1.textview.value = eval(exp);
     }
-    alertNum(eval(exp))
+    
     /// add >> first_operand= eval(exp) ;
     ///              cur_value =eval(exp) ;
     /// cur_operator = "";
@@ -106,9 +130,11 @@ function handleLight() {
 
     if (calcScreen.style.backgroundColor !== "yellow") {
         calcScreen.style.backgroundColor = "yellow";
+        document.getElementById("lump").style.backgroundColor="orange";
     } else {
         let calcScreen = document.querySelector(".calculator-screen");
         calcScreen.style.backgroundColor = "white";
+        document.getElementById("lump").style.backgroundColor="lightblue";
     }
 }
 
@@ -130,7 +156,7 @@ function root_y(){
     document.form1.textview.value  +="**(1/";
 }
 function PI(){
-    document.form1.textview.value  +="math.PI";
+    document.form1.textview.value  +=`${Math.PI.toFixed(4)}`;
 }
 
 function history(){
@@ -148,32 +174,73 @@ function clear_history(){
     document.getElementById("hist").innerText="";
 }
 
+
+
+document.getElementById("histdev").style.display="none"
 function history_on() {
-    clear_history()
+    
     let calcScreen = document.getElementById("clocky");
 
     if (calcScreen.style.backgroundColor !== "orange") {
         calcScreen.style.backgroundColor = "orange";
         document.getElementById("histdev").style.display="block";
         
+        
     } else {
         let calcScreen = document.getElementById("clocky");
         calcScreen.style.backgroundColor = "lightblue";
         document.getElementById("histdev").style.display="none";
+        
+
     }
 }
 
+
+
+document.getElementById("cont").style.display="none"
 function scientific_on() {
     clear_history()
-    let calcScreen = document.getElementById("clocky");
+    let calcScreen = document.getElementById("scientific");
 
     if (calcScreen.style.backgroundColor !== "orange") {
         calcScreen.style.backgroundColor = "orange";
-        document.getElementById("histdev").style.display="block";
+        document.getElementById("cont").style.display="block";
+        Enabled=false;
+        
+        
         
     } else {
-        let calcScreen = document.getElementById("clocky");
+        let calcScreen = document.getElementById("scientific");
         calcScreen.style.backgroundColor = "lightblue";
-        document.getElementById("histdev").style.display="none";
-    }
+        document.getElementById("cont").style.display="none";
+        Enabled= true;
+        
 }
+}
+
+
+
+//(async ()=> {} =>{
+   // try{
+     //const response= await fetch(`http://api.mathjs.org/v4/?expr=${encodeURIComponent(string(document.form1.textview.value))}`);
+        //const result =await response.text();
+        //console.log(result);
+      //  }
+    //catch(err){
+   //     console.log(result);
+  // }
+//})();
+
+async function loadGames() {
+    try {
+      const response = await fetchWithTimeout(`http://api.mathjs.org/v4/?expr=${encodeURIComponent(string(document.form1.textview.value))}`, {
+        timeout: 2000
+      });
+      const games = await response.json();
+      document.form1.textview.value= games;
+    } catch (error) {
+      // Timeouts if the request takes
+      // longer than 2 seconds
+      console.log(error.name === 'AbortError');
+    }
+  }

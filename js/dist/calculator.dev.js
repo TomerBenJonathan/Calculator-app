@@ -1,9 +1,10 @@
 "use strict";
 
-// let cur_value ="";
+var Enabled = true; // let cur_value ="";
 // let first_operand= "";
 // let cur_operator = "";
 // let second_operand = "";
+
 function insert(num) {
   document.form1.textview.value = document.form1.textview.value + num;
 } // if (cur_operator===""){
@@ -14,14 +15,16 @@ function insert(num) {
 
 
 function insertoperator(num) {
-  if (document.form1.textview.value.slice(-1) === '*' || document.form1.textview.value.slice(-1) === '/' || document.form1.textview.value.slice(-1) === '+' || document.form1.textview.value.slice(-1) === '-') {
-    document.form1.textview.value = document.form1.textview.value.slice(0, -1) + num;
-  } else {
-    var exp = document.form1.textview.value;
+  if (Enabled === true) {
+    if (document.form1.textview.value.slice(-1) === '*' || document.form1.textview.value.slice(-1) === '/' || document.form1.textview.value.slice(-1) === '+' || document.form1.textview.value.slice(-1) === '-') {
+      document.form1.textview.value = document.form1.textview.value.slice(0, -1) + num;
+    } else {
+      var exp = document.form1.textview.value;
 
-    if (exp) {
-      document.form1.textview.value = eval(exp);
-      document.form1.textview.value = document.form1.textview.value + num;
+      if (exp) {
+        document.form1.textview.value = eval(exp);
+        document.form1.textview.value = document.form1.textview.value + num;
+      }
     }
   }
 } // if(second_operand !==""){
@@ -35,6 +38,16 @@ function insertoperator(num) {
 // document.form1.textview.value= first_operand + cur_operator;
 
 
+function insertoperatorScientific(num) {
+  if (Enabled === false) {
+    if (document.form1.textview.value.slice(-1) === '*' || document.form1.textview.value.slice(-1) === '/' || document.form1.textview.value.slice(-1) === '+' || document.form1.textview.value.slice(-1) === '-') {
+      document.form1.textview.value = document.form1.textview.value.slice(0, -1) + num;
+    } else {
+      document.form1.textview.value = document.form1.textview.value + num;
+    }
+  }
+}
+
 function alertNum(el) {
   alert(el);
 }
@@ -45,12 +58,11 @@ function equal() {
 
   if (exp) {
     document.form1.textview.value = eval(exp);
-  }
-
-  alertNum(eval(exp)); /// add >> first_operand= eval(exp) ;
+  } /// add >> first_operand= eval(exp) ;
   ///              cur_value =eval(exp) ;
   /// cur_operator = "";
   /// second_operand = "";
+
 }
 
 function backspace() {
@@ -95,10 +107,12 @@ function handleLight() {
 
   if (calcScreen.style.backgroundColor !== "yellow") {
     calcScreen.style.backgroundColor = "yellow";
+    document.getElementById("lump").style.backgroundColor = "orange";
   } else {
     var _calcScreen = document.querySelector(".calculator-screen");
 
     _calcScreen.style.backgroundColor = "white";
+    document.getElementById("lump").style.backgroundColor = "lightblue";
   }
 }
 
@@ -119,7 +133,7 @@ function root_y() {
 }
 
 function PI() {
-  document.form1.textview.value += "math.PI";
+  document.form1.textview.value += "".concat(Math.PI.toFixed(4));
 }
 
 function history() {
@@ -136,8 +150,9 @@ function clear_history() {
   document.getElementById("hist").innerText = "";
 }
 
+document.getElementById("histdev").style.display = "none";
+
 function history_on() {
-  clear_history();
   var calcScreen = document.getElementById("clocky");
 
   if (calcScreen.style.backgroundColor !== "orange") {
@@ -151,17 +166,69 @@ function history_on() {
   }
 }
 
+document.getElementById("cont").style.display = "none";
+
 function scientific_on() {
   clear_history();
-  var calcScreen = document.getElementById("clocky");
+  var calcScreen = document.getElementById("scientific");
 
   if (calcScreen.style.backgroundColor !== "orange") {
     calcScreen.style.backgroundColor = "orange";
-    document.getElementById("histdev").style.display = "block";
+    document.getElementById("cont").style.display = "block";
+    Enabled = false;
   } else {
-    var _calcScreen3 = document.getElementById("clocky");
+    var _calcScreen3 = document.getElementById("scientific");
 
     _calcScreen3.style.backgroundColor = "lightblue";
-    document.getElementById("histdev").style.display = "none";
+    document.getElementById("cont").style.display = "none";
+    Enabled = true;
   }
+} //(async ()=> {} =>{
+// try{
+//const response= await fetch(`http://api.mathjs.org/v4/?expr=${encodeURIComponent(string(document.form1.textview.value))}`);
+//const result =await response.text();
+//console.log(result);
+//  }
+//catch(err){
+//     console.log(result);
+// }
+//})();
+
+
+function loadGames() {
+  var response, games;
+  return regeneratorRuntime.async(function loadGames$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.prev = 0;
+          _context.next = 3;
+          return regeneratorRuntime.awrap(fetchWithTimeout("http://api.mathjs.org/v4/?expr=".concat(encodeURIComponent(string(document.form1.textview.value))), {
+            timeout: 2000
+          }));
+
+        case 3:
+          response = _context.sent;
+          _context.next = 6;
+          return regeneratorRuntime.awrap(response.json());
+
+        case 6:
+          games = _context.sent;
+          document.form1.textview.value = games;
+          _context.next = 13;
+          break;
+
+        case 10:
+          _context.prev = 10;
+          _context.t0 = _context["catch"](0);
+          // Timeouts if the request takes
+          // longer than 2 seconds
+          console.log(_context.t0.name === 'AbortError');
+
+        case 13:
+        case "end":
+          return _context.stop();
+      }
+    }
+  }, null, null, [[0, 10]]);
 }
