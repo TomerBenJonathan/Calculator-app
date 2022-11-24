@@ -140,7 +140,7 @@ function history() {
   var exp = document.form1.textview.value;
   var history_test = "".concat(exp, " \n =").concat(eval(exp), "\n");
   span = document.getElementById("hist");
-  span.style.fontSize = "35px";
+  span.style.fontSize = "20px";
   span.style.textAlign = "center";
   document.getElementById("hist").innerText += history_test;
   console.log(history_test);

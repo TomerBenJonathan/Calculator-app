@@ -73,6 +73,8 @@ function equal() {
     if (exp) {
         document.form1.textview.value = eval(exp);
     }
+
+   
     
     /// add >> first_operand= eval(exp) ;
     ///              cur_value =eval(exp) ;
@@ -164,7 +166,7 @@ function history(){
   const exp = document.form1.textview.value;
   const history_test= `${exp} \n =${eval(exp)}\n`;
   span=document.getElementById("hist");
-  span.style.fontSize= "35px";
+  span.style.fontSize= "20px";
   span.style.textAlign= "center";
   document.getElementById("hist").innerText+=history_test;
   console.log(history_test);

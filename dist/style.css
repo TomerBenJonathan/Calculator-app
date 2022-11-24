@@ -54,6 +54,9 @@ body {
 }
 .calculator-light .alt-operators {
   width: 200px;
+  max-height: 420px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 .calculator-light .container {
   display: grid;
@@ -132,7 +135,6 @@ body {
   cursor: pointer;
 }
 .calculator-light .g {
-  height: 60px;
   grid-area: g;
   border: 1px solid gray;
   align-items: center;
@@ -274,6 +276,7 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 200px;
+  color: white;
   height: 100%;
   grid-template-areas: "a a" "b b" "c d" "e f" "g h" "i i" "i i";
   font-size: 16px;
@@ -346,7 +349,6 @@ body {
   cursor: pointer;
 }
 .calculator-dark .g {
-  height: 60px;
   grid-area: g;
   border: 1px solid gray;
   align-items: center;
@@ -385,7 +387,7 @@ body {
   height: 60px;
   border: 4px white solid;
   background-color: #151617;
-  color: white;
+  color: gray;
   text-align: right;
   padding-right: 20px;
   padding-left: 10px;
@@ -404,6 +406,7 @@ body {
 }
 .calculator-dark .alt-operators {
   width: 200px;
+  color: white;
 }
 .calculator-dark button {
   height: 60px;
