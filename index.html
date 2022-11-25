@@ -26,7 +26,7 @@
                     <button type="button" class="operator" value="a" id="lump" onclick="handleLight()">&#128161;</button>
                     <button type="button" class="operator" value="b" id="clocky" onclick="history_on()">&#128337;</button>
                     <button type="button" class="operator" value="c"id="scientific" onclick="scientific_on()">&#110;&radic;x<sup></sup></button>
-                    <button type="button" class="operator" value="d">☁️</button>
+                    <button type="button" class="operator" value="d" onclick="loadGames()">☁️</button>
                     <button type="button" class="operator"></button>
                     <button type="button" class="operator"></button>
                 </div>
@@ -86,15 +86,18 @@
             <div class="container-mobile">
                 <div class="a bg__light-green"><sup>n</sup>&radic;x Scientific</div>
                 <div class="b bg__light-green"></div>
-                <div class="c bg__light-green">X<sup>2</sup></div>
-                <div class="d bg__light-green"><sup>2</sup>&radic;X</div>
-                <div class="e bg__light-green">X<sup>y</sup></div>
-                <div class="f bg__light-green"><sup>y</sup>&radic;X</div>
+                <div class="c bg__light-green" onclick="power2()">X<sup>2</sup></div>
+                <div class="d bg__light-green" onclick="root_2()"><sup>2</sup>&radic;X</div>
+                <div class="e bg__light-green"onclick="power_y()">X<sup>y</sup></div>
+                <div class="f bg__light-green" onclick="root_y()"><sup>y</sup>&radic;X</div>
                 <div class="g bg__light-green">mod</div>
-                <div class="h bg__light-green">&#x213C;</div>
+                <div class="h bg__light-green"onclick="PI()">&#x213C;</div>
                 <div class="i bg__light-green">Base&#8322;</div>
             </div>
-            <div class="mobile mobile__alt-operators-lighter"></div>
+            <div  class="mobile mobile__alt-operators-lighter">
+                <h1 style="text-align:center">&#128337;Operations log</h1>
+                <div id="histmobile"> </div>
+            </div>
         </div>
     </div>
     

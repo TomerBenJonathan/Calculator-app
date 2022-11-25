@@ -57,7 +57,10 @@ if (rating==='dark'){
     
     document.getElementById("cury").classList.remove("calculator-light");
     document.getElementById("cury").classList.add("calculator-dark");
+    
 
 }else{document.getElementById("cury").classList.add("calculator-light");
 document.getElementById("cury").classList.remove("calculator-dark");
+   
+
 }

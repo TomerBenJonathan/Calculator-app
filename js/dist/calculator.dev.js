@@ -1,6 +1,8 @@
 "use strict";
 
-var Enabled = true; // let cur_value ="";
+var Enabled = true;
+document.getElementById("histdev").style.display = "none";
+document.getElementById("cont").style.display = "none"; // let cur_value ="";
 // let first_operand= "";
 // let cur_operator = "";
 // let second_operand = "";
@@ -138,34 +140,48 @@ function PI() {
 
 function history() {
   var exp = document.form1.textview.value;
-  var history_test = "".concat(exp, " \n =").concat(eval(exp), "\n");
+  var history_test = "\n".concat(exp, " \n =").concat(eval(exp), "\n");
   span = document.getElementById("hist");
   span.style.fontSize = "20px";
   span.style.textAlign = "center";
+  dpan = document.getElementById("histmobile");
+  dpan.style.fontSize = "20px";
+  dpan.style.textAlign = "center";
   document.getElementById("hist").innerText += history_test;
+  document.getElementById("histmobile").innerText += history_test;
   console.log(history_test);
 }
 
 function clear_history() {
   document.getElementById("hist").innerText = "";
+  document.getElementById("histmobile").innerText = "";
 }
 
+document.querySelector(".mobile mobile__alt-operators-lighter").style.display = "none";
+document.getElementById("histmobile").style.display = "none";
 document.getElementById("histdev").style.display = "none";
 
 function history_on() {
   var calcScreen = document.getElementById("clocky");
+  document.getElementById("histdev").style.display = "none";
 
   if (calcScreen.style.backgroundColor !== "orange") {
     calcScreen.style.backgroundColor = "orange";
     document.getElementById("histdev").style.display = "block";
+    document.getElementById("histmobile").style.display = "block";
+    document.querySelector(".mobile mobile__alt-operators-lighter").style.display = "block";
   } else {
     var _calcScreen2 = document.getElementById("clocky");
 
     _calcScreen2.style.backgroundColor = "lightblue";
     document.getElementById("histdev").style.display = "none";
+    document.getElementById("histmobile").style.display = "none";
+    document.querySelector(".mobile mobile__alt-operators-lighter").style.display = "none";
   }
 }
 
+document.querySelector(".container").style.display = "none";
+document.querySelector(".container-mobile").style.display = "none";
 document.getElementById("cont").style.display = "none";
 
 function scientific_on() {
@@ -175,12 +191,14 @@ function scientific_on() {
   if (calcScreen.style.backgroundColor !== "orange") {
     calcScreen.style.backgroundColor = "orange";
     document.getElementById("cont").style.display = "block";
+    document.querySelector(".container-mobile").style.display = "block";
     Enabled = false;
   } else {
     var _calcScreen3 = document.getElementById("scientific");
 
     _calcScreen3.style.backgroundColor = "lightblue";
     document.getElementById("cont").style.display = "none";
+    document.querySelector(".container-mobile").style.display = "none";
     Enabled = true;
   }
 } //(async ()=> {} =>{
@@ -215,20 +233,21 @@ function loadGames() {
         case 6:
           games = _context.sent;
           document.form1.textview.value = games;
-          _context.next = 13;
+          console.log(games);
+          _context.next = 14;
           break;
 
-        case 10:
-          _context.prev = 10;
+        case 11:
+          _context.prev = 11;
           _context.t0 = _context["catch"](0);
           // Timeouts if the request takes
           // longer than 2 seconds
           console.log(_context.t0.name === 'AbortError');
 
-        case 13:
+        case 14:
         case "end":
           return _context.stop();
       }
     }
-  }, null, null, [[0, 10]]);
+  }, null, null, [[0, 11]]);
 }

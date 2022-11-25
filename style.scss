@@ -378,6 +378,7 @@ body {
       "i i";
     font-size: 16px;
     font-weight: 600;
+   
   }
 
 
@@ -537,6 +538,9 @@ body {
 
   .alt-operators {
     width: 200px;
+    max-height: 420px;
+    overflow-y: auto;
+    overflow-x: hidden;
     color: white;
 
   }
@@ -670,6 +674,8 @@ body {
       &__alt-operators-lighter {
         height: 200px;
         background-color: #6ab9ee;
+        overflow-y: auto;
+        overflow-x: hidden;
       }
     }
   }
