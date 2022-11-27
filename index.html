@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./dist/style.css">
+    <title>Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+
+    <div class="calculator-light" id="cury">
+        <div class="wrapper">
+            <div id="histdev" class="logs alt-operators bg__light-gray" style="text-align:center ;"><h1>&#128337;Operations log</h1>
+            <div id="hist"></div>
+            </div>
+            <div class="calculator-keys">
+                <div class="column__left">
+                    <button type="button" class="operator infoAlert" value="info"
+                        onclick="promptAlert()" >&#128712;</button>
+                    <button type="button" class="operator" value="a" id="lump" onclick="handleLight()">&#128161;</button>
+                    <button type="button" class="operator" value="b" id="clocky" onclick="history_on()">&#128337;</button>
+                    <button type="button" class="operator" value="c"id="scientific" onclick="scientific_on()">&#110;&radic;x<sup></sup></button>
+                    <button type="button" class="operator" value="d" onclick="loadGames()">☁️</button>
+                    <button type="button" class="operator"></button>
+                    <button type="button" class="operator"></button>
+                </div>
+
+                <div class="column__middle">
+                    <div class="column__middle-top">
+                        <div class="long-el">
+                            <h1 style="text-align: center; padding-top: 16px;"> my calculator</h1>
+                        </div>
+                        <form name="form1">
+                            <input type="text" class="calculator-screen" placeholder="0" name="textview">
+                        </form>
+                        <button class="long-el" type="button" value="c" onclick="form1.textview.value = '' ,clear_history()">C</button>
+                    </div>
+                    <div class="grid-nums">
+                        <button class="operator n7" type="button" value="7" onclick="insert(7)">7</button>
+                        <button class="operator n8" type="button" value="8" onclick="insert(8)">8</button>
+                        <button class="operator n9" type="button" value="9" onclick="insert(9)">9</button>
+                        <button class="operator n4" type="button" value="4" onclick="insert(4)">4</button>
+                        <button class="operator n5" type="button" value="5" onclick="insert(5)">5</button>
+                        <button class="operator n6" type="button" value="6" onclick="insert(6)">6</button>
+                        <button class="operator n1" type="button" value="1" onclick="insert(1)">1</button>
+                        <button class="operator n2" type="button" value="2" onclick="insert(2)">2</button>
+                        <button class="operator n3" type="button" value="3" onclick="insert(3)">3</button>
+                        <button class="operator n+" type="button" value="-/+" onclick="insertoperator('+')">-/+</button>
+                        <button class="operator n0" type="button" value="0" onclick="insert(0)">0</button>
+                        <button class="operator decimal n." type="button" value="." onclick="insert('.')">.</button>
+                    </div>
+                </div>
+
+                <div class="column__right">
+                    <button type="button" class="operator"> <a href="./config.html" target="_blank">⚙️</a></button>
+                    <button class="operator" type="button" value="B" onclick="backspace()">↺</button>
+                    <button class="operator" type="button" value="/" onclick="insertoperator('/'),insertoperatorScientific('/')">/</button>
+                    <button class="operator" type="button" value="&times;" onclick="insertoperator('*'),insertoperatorScientific('*')">x</button>
+                    <button class="operator" type="button" value="-" onclick="insertoperator('-'), insertoperatorScientific('-')">-</button>
+                    <button class="operator" type="button" value="+" onclick="insertoperator('+'), insertoperatorScientific('+')">+</button>
+                    <button class="operator equal-sign" type="button" value="=" onclick="equal()">=</button>
+                </div>
+            </div>
+
+          <div id = "cont">   
+            <div id = "cont" class="container">
+                <div class="a bg__light-green"><sup>n</sup>&radic;x Scientific</div>
+                <div class="b bg__light-green"></div>
+                <div class="c bg__light-green" onclick="power2()">X&sup2;</sup></div>
+                <div class="d bg__light-green" onclick="root_2()"><sup>2</sup>&radic;x</div>
+                <div class="e bg__light-green" onclick="power_y()">x<sup>y</sup></div>
+                <div class="f bg__light-green" onclick="root_y()"><sup>y</sup>&radic;x</div>
+                <div class="g bg__light-green">mod</div>
+                <div class="h bg__light-green" onclick="PI()">&#x213C;</div>
+                <div class="i bg__light-green">Base&#8322;</div>
+            </div>
+         </div>
+        </div>
+        <div class="mobile">
+            <div class="container-mobile">
+                <div class="a bg__light-green"><sup>n</sup>&radic;x Scientific</div>
+                <div class="b bg__light-green"></div>
+                <div class="c bg__light-green" onclick="power2()">X<sup>2</sup></div>
+                <div class="d bg__light-green" onclick="root_2()"><sup>2</sup>&radic;X</div>
+                <div class="e bg__light-green"onclick="power_y()">X<sup>y</sup></div>
+                <div class="f bg__light-green" onclick="root_y()"><sup>y</sup>&radic;X</div>
+                <div class="g bg__light-green">mod</div>
+                <div class="h bg__light-green"onclick="PI()">&#x213C;</div>
+                <div class="i bg__light-green">Base&#8322;</div>
+            </div>
+            <div  class="mobile mobile__alt-operators-lighter">
+                <h1 style="text-align:center">&#128337;Operations log</h1>
+                <div id="histmobile"> </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <script src="./js/calculator.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+
+
+
+</html>
